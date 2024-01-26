@@ -17,6 +17,7 @@ import {
 import "@refinedev/antd/dist/reset.css";
 
 import { authProvider, dataProvider, liveProvider } from "./providers";
+import { Home, ForgotPassword, Login, Register } from "./pages";
 
 import { createClient } from "graphql-ws";
 import { App as AntdApp } from "antd";
@@ -27,10 +28,6 @@ import routerBindings, {
   UnsavedChangesNotifier,
   DocumentTitleHandler,
 } from "@refinedev/react-router-v6";
-
-import { Login } from "./pages/login";
-import { Register } from "./pages/register";
-import { ForgotPassword } from "./pages/forgotPassword";
 
 function App() {
   return (
@@ -55,7 +52,12 @@ function App() {
             >
               <Routes>
                 <Route index element={<WelcomePage />} />
+                <Route index element={<Home />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
               </Routes>
+
               <RefineKbar />
               <UnsavedChangesNotifier />
               <DocumentTitleHandler />
